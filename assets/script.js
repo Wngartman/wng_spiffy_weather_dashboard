@@ -7,7 +7,7 @@ if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(function (position) {
     long = position.coords.longitude;
     lat = position.coords.latitude;
-    api = "http://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + long + "&units=imperial&appid=fde9f65a3fa7a456dacbde8a2369bb35"
+    api = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + long + "&units=imperial&appid=fde9f65a3fa7a456dacbde8a2369bb35"
     // Fetches the api information and displays current weather
     fetch(api)
       .then(function (response) {
@@ -28,7 +28,7 @@ searchButton.addEventListener('click', () => {
 
   const inputValue = searchInput.value;
 
-  fetch('http://api.openweathermap.org/data/2.5/weather?q=' + inputValue + '&units=imperial&appid=fde9f65a3fa7a456dacbde8a2369bb35')
+  fetch('https://api.openweathermap.org/data/2.5/weather?q=' + inputValue + '&units=imperial&appid=fde9f65a3fa7a456dacbde8a2369bb35')
     .then(function (response) {
       // Checks if the input is valid
       if (response.status === 404) {
@@ -48,7 +48,7 @@ searchButton.addEventListener('click', () => {
       console.log(data);
       console.log(cityName);
 
-      fetch("http://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + long + "&units=imperial&appid=fde9f65a3fa7a456dacbde8a2369bb35")
+      fetch("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + long + "&units=imperial&appid=fde9f65a3fa7a456dacbde8a2369bb35")
         .then(function (response) {
           return response.json();
         })
