@@ -30,13 +30,13 @@ searchButton.addEventListener('click', () => {
 
   fetch('http://api.openweathermap.org/data/2.5/weather?q=' + inputValue + '&units=imperial&appid=fde9f65a3fa7a456dacbde8a2369bb35')
     .then(function (response) {
-// Checks if the input is valid
+      // Checks if the input is valid
       if (response.status === 404) {
         alert("Please check your spelling and try again")
       }
       return response.json();
     })
-// This gets the coordinates to use with the one call API and also fetches it
+    // This gets the coordinates to use with the one call API and also fetches it
     .then(function (data) {
       var lat = data["coord"]["lat"]
       var long = data["coord"]["lon"]
@@ -59,7 +59,7 @@ searchButton.addEventListener('click', () => {
           mainWind.textContent = "Wind: " + (data['current']['wind_speed']) + "MPH";
           mainHumidity.textContent = "Humidity: " + (data['current']['humidity']) + " %";
           mainUV.textContent = "UV Index: " + (data['current']['uvi']);
-// Changes the color of the UV index box to the correct UV index color codes
+          // Changes the color of the UV index box to the correct UV index color codes
           if (data['current']['uvi'] <= 2 || ['current']['uvi'] === 0) {
             mainUV.style.backgroundColor = "green"
           } else if (data['current']['uvi'] > 2 && data['current']['uvi'] < 5) {
